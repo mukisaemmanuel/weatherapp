@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <div class="weather-app">
+      <!-- App Header -->
+      <header class="app-header">
+        <h1>Weather App</h1>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </header>
+
+      <!-- Search Bar -->
+      <section class="search-section">
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="citySearch"
+              placeholder="Search for a city..."
+              class="search-input" />
+            <button id="clearSearch" class="clear-btn" title="Clear search">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <button id="searchBtn" class="search-btn">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Current Weather Section -->
+      <section class="current-weather">
+        <div class="city-status">
+          <h2 id="cityName">City Name</h2>
+          <p id="updateStatus">Updating...</p>
+        </div>
+        <div class="temp-icon">
+          <img
+            id="weatherIcon"
+            src="https://openweathermap.org/img/wn/10d@2x.png"
+            alt="Weather icon" />
+          <h1 id="temperature">23°</h1>
+          <p id="weatherDesc">Thunderclouds</p>
+        </div>
+        <div class="stats">
+          <div>
+            <span class="stat-icon">💨</span>
+            <span id="windSpeed">13</span> km/h
+          </div>
+          <div>
+            <span class="stat-icon">💧</span> <span id="humidity">24</span>%
+          </div>
+          <div>
+            <span class="stat-icon">🌧️</span> <span id="rain">87</span>%
+          </div>
+        </div>
+      </section>
+
+      <!-- Hourly Forecast Section -->
+      <section class="hourly">
+        <h3>Today</h3>
+        <div class="hourly-forecast" id="hourlyForecast">
+          <!-- Example hour card -->
+          <div class="hour-card">
+            <div>10:00</div>
+            <div class="hour-icon">⛈️</div>
+            <div>23°</div>
+          </div>
+          <div class="hour-card">
+            <div>11:00</div>
+            <div class="hour-icon">🌩️</div>
+            <div>21°</div>
+          </div>
+          <div class="hour-card">
+            <div>12:00</div>
+            <div class="hour-icon">🌧️</div>
+            <div>22°</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7-Day Forecast Section -->
+      <section class="weekly">
+        <h3>7 Days</h3>
+        <div class="weekly-forecast" id="weeklyForecast">
+          <!-- Example day card -->
+          <div class="day-card">
+            <div>Mon</div>
+            <div class="day-icon">🌧️</div>
+            <div>+20° / +14°</div>
+          </div>
+          <div class="day-card">
+            <div>Tue</div>
+            <div class="day-icon">🌧️</div>
+            <div>+22° / +16°</div>
+          </div>
+          <div class="day-card">
+            <div>Wed</div>
+            <div class="day-icon">⛈️</div>
+            <div>+19° / +13°</div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="/scripts/main.js"></script>
+  </body>
+</html>
