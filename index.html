@@ -3,118 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+    <title>WeatherSphere - Immersive Weather Experience</title>
     <link rel="stylesheet" href="/styles/style.css" />
     <!-- Font Awesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap"
+      rel="stylesheet" />
   </head>
   <body>
-    <div class="weather-app">
-      <!-- App Header -->
-      <header class="app-header">
-        <h1>Weather App</h1>
-        <button id="themeToggle" class="theme-toggle" title="Toggle theme">
-          <i class="fas fa-moon"></i>
-        </button>
-      </header>
+    <div class="weather-sphere">
+      <!-- Particle Background -->
+      <div id="particles-js" class="particles-background"></div>
 
-      <!-- Search Bar -->
-      <section class="search-section">
+      <!-- Search and Controls -->
+      <div class="controls-section">
         <div class="search-container">
-          <div class="search-input-wrapper">
-            <i class="fas fa-search search-icon"></i>
-            <input
-              type="text"
-              id="citySearch"
-              placeholder="Search for a city..."
-              class="search-input" />
-            <button id="clearSearch" class="clear-btn" title="Clear search">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+          <input
+            type="text"
+            id="citySearch"
+            placeholder="Search for a city..."
+            class="search-input" />
           <button id="searchBtn" class="search-btn">
             <i class="fas fa-search"></i>
-            <span>Search</span>
+          </button>
+          <button id="clearSearch" class="clear-btn" title="Clear search">
+            <i class="fas fa-times"></i>
           </button>
         </div>
-      </section>
 
-      <!-- Current Weather Section -->
-      <section class="current-weather">
-        <div class="city-status">
-          <h2 id="cityName">City Name</h2>
-          <p id="updateStatus">Updating...</p>
+        <div class="voice-control">
+          <button id="voiceBtn" class="voice-btn" title="Voice search">
+            <i class="fas fa-microphone"></i>
+          </button>
         </div>
-        <div class="temp-icon">
-          <img
-            id="weatherIcon"
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="Weather icon" />
-          <h1 id="temperature">23°</h1>
-          <p id="weatherDesc">Thunderclouds</p>
-        </div>
-        <div class="stats">
-          <div>
-            <span class="stat-icon">💨</span>
-            <span id="windSpeed">13</span> km/h
-          </div>
-          <div>
-            <span class="stat-icon">💧</span> <span id="humidity">24</span>%
-          </div>
-          <div>
-            <span class="stat-icon">🌧️</span> <span id="rain">87</span>%
-          </div>
-        </div>
-      </section>
+      </div>
 
-      <!-- Hourly Forecast Section -->
-      <section class="hourly">
-        <h3>Today</h3>
-        <div class="hourly-forecast" id="hourlyForecast">
-          <!-- Example hour card -->
-          <div class="hour-card">
-            <div>10:00</div>
-            <div class="hour-icon">⛈️</div>
-            <div>23°</div>
-          </div>
-          <div class="hour-card">
-            <div>11:00</div>
-            <div class="hour-icon">🌩️</div>
-            <div>21°</div>
-          </div>
-          <div class="hour-card">
-            <div>12:00</div>
-            <div class="hour-icon">🌧️</div>
-            <div>22°</div>
+      <!-- Central Weather Visualization -->
+      <div class="weather-visualization">
+        <div class="weather-globe">
+          <div class="globe-inner">
+            <div class="weather-icon-display"></div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- 7-Day Forecast Section -->
-      <section class="weekly">
-        <h3>7 Days</h3>
-        <div class="weekly-forecast" id="weeklyForecast">
-          <!-- Example day card -->
-          <div class="day-card">
-            <div>Mon</div>
-            <div class="day-icon">🌧️</div>
-            <div>+20° / +14°</div>
+      <!-- Radial Information Layout -->
+      <div class="radial-info">
+        <!-- Current Weather Section -->
+        <section class="current-weather-section">
+          <div class="location-display">
+            <h2 id="cityName">Kampala</h2>
+            <p id="updateStatus">Updated just now</p>
           </div>
-          <div class="day-card">
-            <div>Tue</div>
-            <div class="day-icon">🌧️</div>
-            <div>+22° / +16°</div>
+          <div class="temperature-display">
+            <span id="temperature">23</span>
+            <span class="degree-symbol">°</span>
           </div>
-          <div class="day-card">
-            <div>Wed</div>
-            <div class="day-icon">⛈️</div>
-            <div>+19° / +13°</div>
+          <div class="weather-description">
+            <p id="weatherDesc">Thunderclouds</p>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <!-- Time-based Forecast Sections -->
+        <section class="time-section past-section">
+          <h3>Past</h3>
+          <div class="time-indicator">
+            <i class="fas fa-history"></i>
+          </div>
+          <div class="weather-stats">
+            <div class="stat-item">
+              <span class="stat-label">Yesterday</span>
+              <span class="stat-value">+21° / +15°</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="time-section present-section">
+          <h3>Now</h3>
+          <div class="time-indicator">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="weather-stats">
+            <div class="stat-item">
+              <span class="stat-icon">💨</span>
+              <span class="stat-label">Wind</span>
+              <span id="windSpeed" class="stat-value">13 km/h</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">💧</span>
+              <span class="stat-label">Humidity</span>
+              <span id="humidity" class="stat-value">24%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">🌧️</span>
+              <span class="stat-label">Rain</span>
+              <span id="rain" class="stat-value">87%</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="time-section future-section">
+          <h3>Future</h3>
+          <div class="time-indicator">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="forecast-display">
+            <div class="forecast-item">
+              <span class="forecast-time">2h</span>
+              <span class="forecast-icon">⛈️</span>
+              <span class="forecast-temp">21°</span>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-time">4h</span>
+              <span class="forecast-icon">🌧️</span>
+              <span class="forecast-temp">19°</span>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-time">Tomorrow</span>
+              <span class="forecast-icon">⛈️</span>
+              <span class="forecast-temp">+19° / +13°</span>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
+
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/scripts/main.js"></script>
   </body>
 </html>
